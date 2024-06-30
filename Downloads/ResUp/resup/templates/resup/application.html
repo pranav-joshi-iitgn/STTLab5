@@ -1,0 +1,24 @@
+<h1>Job application</h1>
+by
+<h3>{{ A.student.name }}</h3>
+for
+<h3>{{ A.job.position }}</h3>
+at
+<h3>{{ A.job.company.name }}</h3>
+
+<h2><a href="{{ A.resume }}">Resume</a></h2>
+<iframe src = "{{ A.resume }}"></iframe>
+<h3>Absent skills</h3>
+{{ A.absent_skills }}
+<h3>Absent technologies</h3>
+{{ A.absent_stack }}
+<h3>Score</h3>
+{{ A.score }}
+<h3>Delete Application ?</h3>
+<form method=post action="https://pranavjoshiiitgn.pythonanywhere.com/resup/delete/">
+{% csrf_token %}
+<input type=hidden value=application name=type>
+<input type=hidden value={{A.id}} name=id>
+<input type=text name=password placeholder=password>
+<input type=submit value=delete>
+</form>
